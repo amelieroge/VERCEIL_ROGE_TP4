@@ -6,20 +6,76 @@ Amélie Rogé _ Anaïs Eudes
 package tp1_convertisseur_roge_eudes;
 
 import java.util.Scanner;
-import static tp1_convertisseur_roge_eudes.CelciusVersKelvin.CelciusVersKelvin;
 
-/**
- *
- * @author ASUS
- */
 public class TP1_convertisseur_ROGE_EUDES {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
+            
+    /*
+50 degré Kelvin est égal à -223.15 degrés Celcius
+    */
+        double operateur;
+        Scanner sc1 = new Scanner(System.in);
+        System.out.println("Saisissez la conversion que vous souhaiter effectuer : \n 1) De Celcius vers Kelvin \n 2) De Kelvin vers Celcius \n 3)De Farenheit vers Celcius \n 4) De Celcius vers Farenheit \n 5) De Kelvin vers Farenheit \n 6) De Farenheit vers Kelvin");
+        operateur = sc1.nextDouble();
         
-        System.out.println(CelciusVersKelvin(8));
+        int valeur;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Bonjour, saisissez une valeur :");
+        valeur = sc.nextInt();
+
+        if (operateur == 1){
+            System.out.println(valeur + " degré Celcius est égal à " + CelciusVersKelvin(valeur) + " degrés Kelvin");
+        }
+        
+        if (operateur == 2){
+            System.out.println(valeur + " degré Kelvin est égal à " + KelvinVersCelcius(valeur) + " degrés Celcius");
+        }
+        
+        if (operateur == 3){
+            System.out.println(valeur + " degré Farenheit est égal à " + FarenheitVersCelcius(valeur) + " degrés Celcius");
+        }
+        
+        if (operateur == 4){
+            System.out.println(valeur + " degré Celcius est égal à " + CelciusVersFarenheit(valeur) + " degrés Farenheit");
+        }
+        
+        if (operateur == 5){
+            System.out.println(valeur + " degré Kelin est égal à " + KelvinVersFarenheit(valeur) + " degrés Farenheit");
+        }
+        
+        if (operateur == 6) {
+            System.out.println(valeur + " degré Farenheit est égal à " + FarenheitVersKelvin(valeur) + " degrés Kelvin");
+        }
+        
+        if ((operateur < 1) || (operateur > 6)){
+            System.out.println("ERROR : incorrect operator");
+        }
+        
     }
     
+    public static double CelciusVersKelvin (double tCelcius) {
+        return tCelcius + 274.15;
+    }
+    
+    public static double KelvinVersCelcius (double tKelvin) {
+        return tKelvin - 274.15;
+    }
+    
+    public static double FarenheitVersCelcius (double tFarenheit) {
+        return ( tFarenheit - 32 ) / 1.8;
+    }
+    
+    public static double CelciusVersFarenheit (double tCelcius) {
+        return tCelcius * 1.8 + 32;
+    }
+    
+    public static double KelvinVersFarenheit (double tKelvin) {
+        return CelciusVersFarenheit(KelvinVersCelcius(tKelvin));
+    }
+    
+    public static double FarenheitVersKelvin (double tFarenheit) {
+        return CelciusVersKelvin(FarenheitVersCelcius(tFarenheit));
+    }
+
 }
