@@ -14,7 +14,14 @@ public class TP2_Bieres_ROGE_EUDES {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        BouteilleBiere uneBiere = new BouteilleBiere("Cuvée des Trolls", 7.0, "Dubuisson");
+        uneBiere.Decapsuler(); // on créé une bouteille de Cuvée des Trolls avec toutes ses caractéristiques, puis on l'ouvre
+        
+        BouteilleBiere uneAutreBiere = new BouteilleBiere("Leffe", 6.6, "Abbaye de Leffe");
+        // on créé une bouteille de Leffe avec toutes ses caractéristiques, cette fois sans l'ouvrir (on la garde pour plus tard)
+        
+        System.out.println(uneBiere);
+        System.out.println(uneAutreBiere); // on affiche les infomations de nos biières (leur nom, degré d'alcool et si elles sont ouvertes
     }
     
 }
