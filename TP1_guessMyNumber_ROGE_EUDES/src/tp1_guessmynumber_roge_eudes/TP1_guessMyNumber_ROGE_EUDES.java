@@ -15,7 +15,7 @@ public class TP1_guessMyNumber_ROGE_EUDES {
         
         int difficulte = 0;
         Scanner sc = new Scanner(System.in);
-        System.out.println("Choisis ton niveau de difficulté : \n 1) Facile \n 2) Normal \n 3) Difficile : tu as 7 essais");
+        System.out.println("Choisis ton niveau de difficulté : \n 1) Facile \n 2) Normal \n 3) Difficile : tu as 7 essais \n 4) Cauchemar : C'est le chaos");
         difficulte = sc.nextInt();
         // cette commande permet de choisir le niveau de difficulté 
         
@@ -49,7 +49,7 @@ public class TP1_guessMyNumber_ROGE_EUDES {
             while ( nbr1 != n) ; // effectue les actions du "do" tant que la valeur de l'ordinateur n'est pas trouvée, il n'y a pas de limite de tentative
         }
         
-    if ((difficulte == 2) || (difficulte == 3)){ // comme l'intervalle dans laquelle peut être choisie la valeur est la même entre la difficulté 2 et 3, on fait un "if" commun aux deux pour déterminer la valeur
+    if ((difficulte == 2) || (difficulte == 3) || (difficulte == 4)){ // comme l'intervalle dans laquelle peut être choisie la valeur est la même entre la difficulté 2 et 3, on fait un "if" commun aux deux pour déterminer la valeur
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(100); // la valeur est entre 0 et 100
         int i = 0;
@@ -104,6 +104,42 @@ public class TP1_guessMyNumber_ROGE_EUDES {
         
             while ( nbr1 != n && i < 7); // on ajoute ici une instruction pour sortir de la boucle si le nombre de tentatives dépasse 7
         }
+        
+                if (difficulte == 4){
+            do {
+            Scanner sc1 = new Scanner(System.in);
+            nbr1 = sc1.nextInt();
+            
+            int proba = generateurAleat.nextInt(3); //Random proba : Si proba = 2, mauvaise indication
+        
+            if (nbr1 == n) {
+                System.out.print("Bravo ! Tu as trouvé ma valeur !");
+            }
+        
+            if (nbr1 <  n) {
+                if ((proba == 0) || (proba == 1)) { //Si proba = 0 ou 1, renvoie reponse normale
+                    System.out.print ("C'est plus !");
+                }
+                else { // Sinon, si proba = 2, renvoie la mauvaise reponse
+                    System.out.print("C'est moins !");
+                }
+            }
+        
+            if (nbr1 > n) {
+                if ((proba == 0) || (proba == 1)) {
+                    System.out.print("C'est moins !");
+                }
+                else {
+                    System.out.print ("C'est plus !");
+                }
+            }
+       
+            i++;
+            System.out.println(" C'était ta " + i + "° tentative.");}
+        
+            while ( nbr1 != n) ;
+        }
+        
         
         if (i == 7){
             System.out.println("C'est perdu ! Ma valeur était " + n + "."); // on affiche un message de défaite si la valeur n'a pas été trouvée en 7 tentatives
