@@ -16,29 +16,62 @@ public class TP1_guessMyNumber_ROGE_EUDES {
         Random generateurAleat = new Random();
         int n = generateurAleat.nextInt(100);
         int i = 0;
-        
-        do {
         int nbr1 = 0;
-        Scanner sc1 = new Scanner(System.in);
-        System.out.println("Devine ma valeur, humain");
-        nbr1 = sc1.nextInt();
+        int difficulte = 0;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Quel est le mode dans lequel tu veux jouer ? \n 1) Normal \n 2) Difficile : tu as 7 essais");
+        difficulte = sc.nextInt();
+        System.out.println("Devine ma valeur, humain (elle est entre 0 et 100)");
         
-        if (nbr1 == n) {
-            System.out.print("Bravo ! Tu as trouvé mon nombre !");
-        }
+        if (difficulte == 1){
+            do {
+            Scanner sc1 = new Scanner(System.in);
+            nbr1 = sc1.nextInt();
         
-        if (nbr1 <  n) {
-            System.out.println ("C'est plus !");
-        }
+            if (nbr1 == n) {
+                System.out.print("Bravo ! Tu as trouvé ma valeur !");
+            }
         
-        if (nbr1 > n) {
-            System.out.println("C'est moins !");
-        }
+            if (nbr1 <  n) {
+                System.out.print ("C'est plus !");
+            }
+        
+            if (nbr1 > n) {
+                System.out.print("C'est moins !");
+            }
        
-        i++;}
-       while ( nbr1 != n) ;
+            i++;
+            System.out.println(" C'était ta " + i + "° tentative.");}
         
-        System.out.print(i);
+            while ( nbr1 != n) ;
+        }
+        
+        if (difficulte == 2){
+            do {
+            Scanner sc1 = new Scanner(System.in);
+            nbr1 = sc1.nextInt();
+        
+            if (nbr1 == n) {
+                System.out.print("Bravo ! Tu as trouvé ma valeur !");
+            }
+        
+            if (nbr1 <  n) {
+                System.out.print ("C'est plus !");
+            }
+        
+            if (nbr1 > n) {
+                System.out.print("C'est moins !");
+            }
+       
+            i++;
+            System.out.println(" C'était ta " + i + "° tentative.");
+            }
+        
+            while ( nbr1 != n && i < 7);
+        }
+        if (i > 7){
+            System.out.println("C'est perdu ! Ma valeur était " + n + ".");
+        }
     }
     
 }
