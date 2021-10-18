@@ -17,12 +17,12 @@ public class TP1_convertisseur_ROGE_EUDES {
         double operateur;
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Saisissez la conversion que vous souhaiter effectuer : \n 1) De Celcius vers Kelvin \n 2) De Kelvin vers Celcius \n 3)De Farenheit vers Celcius \n 4) De Celcius vers Farenheit \n 5) De Kelvin vers Farenheit \n 6) De Farenheit vers Kelvin");
-        operateur = sc1.nextDouble();
+        operateur = sc1.nextDouble(); // permet de choisir la conversion à effectuer
         
         int valeur;
         Scanner sc = new Scanner(System.in);
         System.out.println("Bonjour, saisissez une valeur :");
-        valeur = sc.nextInt();
+        valeur = sc.nextInt(); // insère la valeur à convertir
 
         if (operateur == 1){
             System.out.println(valeur + " degré Celcius est égal à " + CelciusVersKelvin(valeur) + " degrés Kelvin");
@@ -55,27 +55,27 @@ public class TP1_convertisseur_ROGE_EUDES {
     }
     
     public static double CelciusVersKelvin (double tCelcius) {
-        return tCelcius + 274.15;
+        return tCelcius + 274.15; // ajoute 274.15 à la température en Celcius pour la convertir en Kelvin
     }
     
     public static double KelvinVersCelcius (double tKelvin) {
-        return tKelvin - 274.15;
+        return tKelvin - 274.15; // retourne des Kenvin aux Celcuis
     }
     
     public static double FarenheitVersCelcius (double tFarenheit) {
-        return ( tFarenheit - 32 ) / 1.8;
+        return ( tFarenheit - 32 ) / 1.8; // effectue la conversion de Farenheit vers Celcuis
     }
     
     public static double CelciusVersFarenheit (double tCelcius) {
-        return tCelcius * 1.8 + 32;
+        return tCelcius * 1.8 + 32; // retourne des Celcuis vers les Farenheit
     }
     
     public static double KelvinVersFarenheit (double tKelvin) {
-        return CelciusVersFarenheit(KelvinVersCelcius(tKelvin));
+        return CelciusVersFarenheit(KelvinVersCelcius(tKelvin)); // utilise les fonctions précédemment décrites pour passer des Kelvin aux Farenheit
     }
     
     public static double FarenheitVersKelvin (double tFarenheit) {
-        return CelciusVersKelvin(FarenheitVersCelcius(tFarenheit));
+        return CelciusVersKelvin(FarenheitVersCelcius(tFarenheit)); // utilise les fonctions précdemment décrites pour passer des Farenheit aux Kelvin 
     }
 
 }
