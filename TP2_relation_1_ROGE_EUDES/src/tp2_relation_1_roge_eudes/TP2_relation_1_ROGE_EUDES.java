@@ -22,6 +22,12 @@ public class TP2_relation_1_ROGE_EUDES {
         Personne bob = new Personne("Bobby", "Sixkiller");
         Personne reno = new Personne("Reno", "Raines");
         
+        bob.ajouter_voiture(uneClio);
+        bob.ajouter_voiture(une2008);
+        reno.ajouter_voiture(uneAutreClio);
+        reno.ajouter_voiture(uneMicra);
+        reno.ajouter_voiture(une2008);
+        
         /*bob.liste_voitures[0] = uneClio ;
         bob.liste_voitures[1] = une2008;
         bob.nbVoitures = 2 ;
@@ -33,11 +39,12 @@ public class TP2_relation_1_ROGE_EUDES {
         reno.nbVoitures = 2 ;
         uneAutreClio.proprietaire = reno;
         uneMicra.proprietaire = reno;
+        */
         
         System.out.println("Liste des voitures disponibles :\n" + uneClio + "\n" + uneAutreClio + "\n" + une2008 + "\n" + uneMicra ) ;
         System.out.println("La premiere voiture de Bob est une " + bob.liste_voitures[0] + ", sa seconde voiture est une "+ bob.liste_voitures[1]) ;
-        System.out.println("La premiere voiture de Reno est une " + reno.liste_voitures[0] + ", sa seconde voiture est une "+ reno.liste_voitures[1]) ;
-        */
+        System.out.println("La premiere voiture de Reno est une " + reno.liste_voitures[0] + ", sa seconde voiture est une "+ reno.liste_voitures[1] + ", sa troisième voiture est une " + reno.liste_voitures[2]) ;
+        
     }
     
 }
