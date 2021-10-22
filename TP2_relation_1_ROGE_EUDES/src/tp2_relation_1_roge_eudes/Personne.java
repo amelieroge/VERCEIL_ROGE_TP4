@@ -26,4 +26,21 @@ public class Personne {
     public String toString(){
         return nom + " " + prenom;
     }
+    
+    public boolean ajouter_voiture( Voiture voiture_a_ajouter){
+        
+        if (voiture_a_ajouter.proprietaire != null){
+            return false;
+        }
+        if (nbVoitures == 3){
+            return false;
+        }
+        liste_voitures[nbVoitures] = voiture_a_ajouter;
+        
+        nbVoitures = nbVoitures + 1;
+        
+        voiture_a_ajouter.proprietaire = this ; 
+        
+        return true;
+    }
 }
