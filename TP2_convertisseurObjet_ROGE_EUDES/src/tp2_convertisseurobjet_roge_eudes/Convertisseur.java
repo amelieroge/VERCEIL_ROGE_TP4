@@ -36,17 +36,19 @@ public class Convertisseur {
     }
     
     public double KelvinVersFarenheit (double tKelvin) {
-        nbConversions++;
+        nbConversions = nbConversions -1;
         return CelciusVersFarenheit(KelvinVersCelcius(tKelvin)); // utilise les fonctions précédemment décrites pour passer des Kelvin aux Farenheit
     }
     
     public double FarenheitVersKelvin (double tFarenheit) {
-        nbConversions++;
+        nbConversions = nbConversions - 1;
         return CelciusVersKelvin(FarenheitVersCelcius(tFarenheit)); // utilise les fonctions précdemment décrites pour passer des Farenheit aux Kelvin 
     }
     
     public String toString(){
-        return "Nombre de conversions : " + nbConversions;
+        String res = "";
+        res += "Nombre de conversions : " + nbConversions;
+        return res;
     }
     
     
