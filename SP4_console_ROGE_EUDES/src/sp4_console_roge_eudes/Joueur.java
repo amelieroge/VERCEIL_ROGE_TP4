@@ -18,5 +18,19 @@ package sp4_console_roge_eudes;
 +boolean utiliserDesintegrateur()
  */
 public class Joueur {
+   String Nom ;
+   String Couleur ;
+   Jeton nombreJetons[] ;
+   int nombreJetonsRestants ;
    
+   public Joueur(String nom){ // Constructeur
+       Nom = nom ;
+       Couleur = "" ;
+       nombreJetons= new Jeton [21] ;
+       nombreJetonsRestants = 21 ;
+   }
+   
+   public void affecterCouleur(String couleur){
+       Couleur = couleur;
+   }
 }
