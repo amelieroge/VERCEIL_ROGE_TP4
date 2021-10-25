@@ -26,11 +26,11 @@ public class Joueur {
        Nom = nom ;
        Couleur = "" ;
        ListeJetons= new Jeton [21] ;
-       nombreJetonsRestants = 21 ;
+       nombreJetonsRestants = 0 ;
    }
    
-   public void affecterCouleur(String couleur){
-       Couleur = couleur;
+   public void affecterCouleur(String c){
+       Couleur = c;
    }
    
    
@@ -38,7 +38,14 @@ public class Joueur {
 // +void obtenirDesintegrateur()
 // +boolean utiliserDesintegrateur()
         
-    public boolean recevoirJeton(Jeton) {
-        
+    public boolean ajouterJeton(Jeton j) {
+        if (nombreJetonsRestants <21) {
+            ListeJetons[nombreJetonsRestants]=j ;
+            nombreJetonsRestants++ ;
+            return true ;
+        }
+        else{
+            return false ;
+        }
     }
 }

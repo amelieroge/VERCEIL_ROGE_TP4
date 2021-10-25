@@ -17,7 +17,7 @@ public class Jeton {
     public Jeton (String couleur) {
         Couleur = couleur ;
     }
-    public lireCouleur (){
+    public String lireCouleur (){
         return Couleur ;
     }
 }
