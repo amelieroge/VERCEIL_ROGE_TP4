@@ -12,5 +12,12 @@ package sp4_console_roge_eudes;
 +String lireCouleur()
 */
 public class Jeton {
+    String Couleur ;
     
+    public Jeton (String couleur) {
+        Couleur = couleur ;
+    }
+    public lireCouleur (){
+        return Couleur ;
+    }
 }
