@@ -12,7 +12,7 @@ import java.util.Random;
 -Grille grilleJeu
 
 +Parie (Joueur, Joueur) : fait
-+void initialiserPartie()
++void initialiserPartie() : fait
 +void debuterPartie()
 +void attribuerCouleurAuxJoueurs() : fait
  */
@@ -56,6 +56,33 @@ public class Partie {
             }
             for (int i = 0 ; i < ListeJoueurs[1].ListeJetons.length ; i++){
                 ListeJoueurs[1].ListeJetons[i] = new Jeton("rouge");
+            }
+        }
+    }
+    
+    public void debuterPartie(){
+        Random r = new Random();
+        int R = r.nextInt(1);
+        if (ListeJoueurs[0].RecupCouleur() == "rouge"){
+            if (R == 0){
+                joueurCourant = ListeJoueurs[0];
+            } else joueurCourant = ListeJoueurs[1];
+        } else {
+            if (R == 0){
+                joueurCourant = ListeJoueurs[1];
+            } else joueurCourant = ListeJoueurs[0];
+        }
+        
+        while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == false) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == false)){
+            int index;
+            for (int i = 0 ; i < joueurCourant.ListeJetons.length ; i++){
+                if (joueurCourant.ListeJetons[i] != null){
+                    index = i;
+                    break;
+                }
+            }
+            if (ListeJoueurs[0] == joueurCourant){
+                joueurCourant.ajouterJeton(joueurCourant.ListeJetons[index]);
             }
         }
     }
