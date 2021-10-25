@@ -33,6 +33,10 @@ public class Joueur {
        Couleur = c;
    }
    
+   public String RecupCouleur () {
+       return Couleur ;
+   }
+   
    
 // +boolean recevoirJeton(Jeton)
 // +void obtenirDesintegrateur()
