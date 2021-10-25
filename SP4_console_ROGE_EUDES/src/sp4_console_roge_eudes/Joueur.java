@@ -20,17 +20,25 @@ package sp4_console_roge_eudes;
 public class Joueur {
    String Nom ;
    String Couleur ;
-   Jeton nombreJetons[] ;
    int nombreJetonsRestants ;
-   
+   Jeton [] ListeJetons ;
    public Joueur(String nom){ // Constructeur
        Nom = nom ;
        Couleur = "" ;
-       nombreJetons= new Jeton [21] ;
+       ListeJetons= new Jeton [21] ;
        nombreJetonsRestants = 21 ;
    }
    
    public void affecterCouleur(String couleur){
        Couleur = couleur;
    }
+   
+   
+// +boolean recevoirJeton(Jeton)
+// +void obtenirDesintegrateur()
+// +boolean utiliserDesintegrateur()
+        
+    public boolean recevoirJeton(Jeton) {
+        
+    }
 }
