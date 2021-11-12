@@ -30,7 +30,7 @@ public class Grille {
     public Grille () {
         CelluleJeu = new Cellule[6][7]; // 6 se balader sur ligne / 7 se balader sur colonne
         for (int i = 0 ; i < 6 ; i++){
-            for (int j = 0 ; j < 5 ; j++){
+            for (int j = 0 ; j < 7 ; j++){
                 CelluleJeu[i][j] = new Cellule();
             }
         }
@@ -93,17 +93,17 @@ public class Grille {
     public void afficherGrilleSurConsole(){
         String res = "";
         String res1 = "";
-        for (int i = 5 ; i >= 0 ; i--){
-            for (int j = 0 ; j <= 6 ; j++){
-                if (CelluleJeu[i][j] == null) res += " x ";
+        for (int i = 5 ; i >= 0 ; i--){ //lignes
+            for (int j = 0 ; j <= 6 ; j++){ //colonnes
+                if (CelluleJeu[i][j].jetonCourant == null) res += " x ";
                 else {if (CelluleJeu[i][j].lireCouleurDuJeton() == "rouge") res += (" R " + "\u001B[31m");
                      if (CelluleJeu[i][j].lireCouleurDuJeton() == "jaune") res += (" J " + "\u001B[33m");}
-                System.out.print(res);
+                //System.out.println(res);
             } 
             res1 += res + "\n";
             res = "";
         } 
-        //System.out.println(res1);
+        System.out.println(res1);
     }
     
     public boolean celluleOccupee(int ligne,int colonne){
