@@ -8,24 +8,26 @@ package sp4_console_roge_eudes;
 -String Nom
 -String Couleur
 -Jeton [] ListeJetons
--int nombreDesintegrateurs
+-int nombreDesintegrateurs v4
 -int nombreJetonsRestants
 
 +Joueur (String)
 +void affecterCouleur(String)
-+boolean recevoirJeton(Jeton)
-+void obtenirDesintegrateur()
-+boolean utiliserDesintegrateur()
++boolean ajouterJeton(Jeton)
++void obtenirDesintegrateur() v4
++boolean utiliserDesintegrateur() v4
  */
+
 public class Joueur {
    String Nom ;
    String Couleur ;
    int nombreJetonsRestants ;
    Jeton [] ListeJetons ;
+   
    public Joueur(String nom){ // Constructeur
        Nom = nom ;
        Couleur = "" ;
-       ListeJetons= new Jeton [21] ;
+       ListeJetons = new Jeton [21] ;
        nombreJetonsRestants = 0 ;
    }
    

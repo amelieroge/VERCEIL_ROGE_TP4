@@ -1,13 +1,23 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+  v1 check
+*/
 package sp4_console_roge_eudes;
 
-/**
- *
- * @author Anais
+/* Cellule
+- boolean trouNoir v2
+- boolean desintegrateur v4
+
++ Cellule()
++ Jeton recupererJeton() v3
++ boolean supprimerJeton() v4
++ boolean placerTrouNoir() v2
++ boolean placerDesintegrateur() v4
++ boolean presenceTrouNoir() v2
++ boolean presenceDesintegrateur() v4
++ boolean recupererDesintegrateur() v4
++ boolean activerTrouNoir() v2
  */
+
 public class Cellule {
     Jeton jetonCourant ;
     
@@ -15,5 +25,15 @@ public class Cellule {
         jetonCourant = null ;
     }
     
+    public boolean affecterJeton(Jeton jeton){
+        if (jetonCourant == null){
+            jetonCourant = jeton;
+            return true;
+        } else return false;
+    }
     
+    public String lireCouleurDuJeton(){
+        if (jetonCourant == null) return "vide"; 
+        else return jetonCourant.lireCouleur();
+    }
 }
