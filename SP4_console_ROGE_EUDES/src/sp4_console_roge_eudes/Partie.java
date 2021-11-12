@@ -43,8 +43,13 @@ public class Partie {
     
     public void initialiserPartie(){
         grilleJeu = new Grille();                                  
+        Jeton j = new Jeton(ListeJoueurs[0].Couleur) ;
+        for (int i=0 ; i<21 ; i++) {
+            ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
+            ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
+        }
         
-        if (ListeJoueurs[0].RecupCouleur() == "rouge"){
+        /*if (ListeJoueurs[0].RecupCouleur() == "rouge"){
             for (int i = 0 ; i < ListeJoueurs[0].ListeJetons.length ; i++){
                 ListeJoueurs[0].ListeJetons[i] = new Jeton("rouge");
             }
@@ -58,7 +63,7 @@ public class Partie {
             for (int i = 0 ; i < ListeJoueurs[1].ListeJetons.length ; i++){
                 ListeJoueurs[1].ListeJetons[i] = new Jeton("rouge");
             }
-        }
+        }*/
     }
     
     public void debuterPartie(){ 
