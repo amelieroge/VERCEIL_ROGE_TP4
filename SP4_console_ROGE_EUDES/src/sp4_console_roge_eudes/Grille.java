@@ -92,14 +92,15 @@ public class Grille {
     
     public void afficherGrilleSurConsole(){
         String res = "";
+        String res1 = "";
         for (int i = 6 ; i < 0 ; i--){
             for (int j = 0 ; j < 5 ; j++){
                 if (CelluleJeu[i][j].lireCouleurDuJeton() == "rouge") res += (" R " + "\u001B[31m");
                 if (CelluleJeu[i][j].lireCouleurDuJeton() == "jaune") res += (" J " + "\u001B[33m");
                 if (CelluleJeu[i][j] == null) res += " x ";
             }
-            System.out.println(res);
-        }
+            res1 += res + "\n";
+        } System.out.println(res1);
     }
     
     public boolean celluleOccupee(int ligne,int colonne){
