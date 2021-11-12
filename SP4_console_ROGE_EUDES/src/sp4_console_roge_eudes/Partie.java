@@ -4,6 +4,7 @@
 package sp4_console_roge_eudes;
 
 import java.util.Random;
+import java.util.Scanner;
 
 /*Partie
 
@@ -30,7 +31,7 @@ public class Partie {
   
     public void attribuerCouleurAuxJoueurs(){
         Random r = new Random();
-        int R = r.nextInt(1); // on créé ici un entier aléatoire entre 0 et 1
+        int R = r.nextInt(2); // on créé ici un entier aléatoire entre 0 et 1
         if (R == 0){
             ListeJoueurs[0].affecterCouleur("rouge");
             ListeJoueurs[1].affecterCouleur("jaune");
@@ -60,29 +61,39 @@ public class Partie {
         }
     }
     
-    public void debuterPartie(){
-        Random r = new Random();
-        int R = r.nextInt(1);
-        if (ListeJoueurs[0].RecupCouleur() == "rouge"){
-            if (R == 0){
-                joueurCourant = ListeJoueurs[0];
-            } else joueurCourant = ListeJoueurs[1];
-        } else {
-            if (R == 0){
-                joueurCourant = ListeJoueurs[1];
-            } else joueurCourant = ListeJoueurs[0];
-        }
+    public void debuterPartie(){ 
+        // test si grille remplie, plus de jetons, gagné
+        Scanner sc = new Scanner(System.in);
         
-        while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == false) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == false)){
-            int index;
-            for (int i = 0 ; i < joueurCourant.ListeJetons.length ; i++){
-                if (joueurCourant.ListeJetons[i] != null){
-                    index = i;
-                    break;
-                }
+        if (ListeJoueurs[0].RecupCouleur() == "rouge"){ //joueur rouge commence
+            joueurCourant = ListeJoueurs[0];
+        } else {
+            joueurCourant = ListeJoueurs[1];
+        }
+
+        int indexColonne=0 ;
+        boolean TestFin=false ;
+        int colonne=0 ;
+        while (TestFin==false) {
+            
+            do
+            {
+                colonne=sc.nextInt();
             }
-            if (ListeJoueurs[0] == joueurCourant){
-                joueurCourant.ajouterJeton(joueurCourant.ListeJetons[index]);
+            while (((colonne<0) || (colonne>6)) && grilleJeu.colonneRemplie(colonne)==false) ; //si clolonne dans bornes et si colonne pas remplie
+            grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants], colonne);
+            joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null ;
+            joueurCourant.nombreJetonsRestants --;
+
+            if (joueurCourant==ListeJoueurs[0]) { //Changement de joueur courant
+                joueurCourant=ListeJoueurs[1] ;
+            } else {
+                joueurCourant=ListeJoueurs[0] ;
+            }
+            
+            if (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == true)) || (grilleJeu.etreRemplie()==false) || (joueurCourant.nombreJetonsRestants == 0)) {
+                TestFin = true ;
+                System.out.println("Si tu lis ca tu as reussi a finir le code donc tu es une personne incroyable <3");
             }
         }
     }
