@@ -14,7 +14,20 @@ public class SP4_console_ROGE_EUDES {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Joueur anais = new Joueur("Anais");
+        Joueur amelie = new Joueur("Amelie");
+        
+        Partie p = new Partie(anais,amelie);
+        
+        p.initialiserPartie();
+        p.attribuerCouleurAuxJoueurs();
+        
+        System.out.println(anais.Couleur);
+        System.out.println(amelie.Couleur);
+        
+        System.out.println(anais.nombreJetonsRestants);
+        
+        p.grilleJeu.afficherGrilleSurConsole();
     }
     
 }
