@@ -4,10 +4,26 @@
  */
 package sp4_console_roge_eudes;
 
-/**
- *
- * @author Anais
+/* Grille
+ 
+- Cellule [6][7] CellulesJeu
+
++ Grille()
++ boolean ajouterJetonDansColonne(Jeton, int)
++ boolean etreRemplie()
++ void viderGrille()
++ void afficherGrilleSurConsole()
++ boolean celluleOccupee(int,int)
++ String lireCouleurDuJeton(int, int)
++ boolean etreGagnantPourJoueur(Joueur)
++ void tasserGrille(int) bleu
++ boolean colonneRemplie(int)
++ boolean placerDesintegrateur(int,int) jaune
++ boolean placerTrouNoir(int, int) vert
++ boolean supprimerJeton(int,int) jaune
++ Jeton recupererJeton(int,int) bleu
  */
+
 public class Grille {
     Cellule [][] CelluleJeu ;
     
@@ -21,6 +37,10 @@ public class Grille {
                 CelluleJeu[i][n].affecterJeton(j) ;
                 return true ;
             } else return false;
-        }
+        } return false;
+    }
+    
+    public boolean etreGagnantPourJoueur(Joueur joueur){
+        return true;
     }
 }
