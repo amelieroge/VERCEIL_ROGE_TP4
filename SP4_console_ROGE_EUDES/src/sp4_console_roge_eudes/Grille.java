@@ -40,7 +40,7 @@ public class Grille {
         } return false;
     }
     
-    public boolean etreGagnantPourJoueur(Joueur joueur){
+    public boolean etreGagnantePourJoueur(Joueur joueur){
         return true;
     }
 }
