@@ -28,6 +28,8 @@ public class SP4_console_ROGE_EUDES {
         System.out.println(anais.nombreJetonsRestants);
         
         p.grilleJeu.afficherGrilleSurConsole();
+        p.debuterPartie();
+        
     }
     
 }
