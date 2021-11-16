@@ -108,4 +108,29 @@ public class Partie {
             }
         }
     }
+    public void debuterPartie1(){ 
+        
+        if (ListeJoueurs[0].RecupCouleur() == "rouge") joueurCourant = ListeJoueurs[0];
+        else joueurCourant = ListeJoueurs[1];
+
+        do {
+            Scanner sc = new Scanner(System.in);
+            int colonne = sc.nextInt();
+       
+            grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants], colonne);
+            
+            joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null ;
+            joueurCourant.nombreJetonsRestants --;
+            
+            grilleJeu.afficherGrilleSurConsole();
+            
+            if (joueurCourant==ListeJoueurs[0]) joueurCourant=ListeJoueurs[1];
+            else joueurCourant=ListeJoueurs[0];
+            
+            System.out.println(joueurCourant.Nom + ", c'est à toi de jouer");
+                   
+        } while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == true)) || (grilleJeu.etreRemplie()==true) || (joueurCourant.nombreJetonsRestants == 0)) ; //si clolonne dans bornes et si colonne pas remplie
+    }
 }
+
+    
