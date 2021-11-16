@@ -37,12 +37,13 @@ public class Grille {
     }
     
     public boolean ajouterJetonDansColonne(Jeton j,int n) {
-        for (int i = 0 ; i < 6 ; i++) {
+        for (int i = 5 ; i >= 0  ; i--) {
             if (CelluleJeu[i][n].jetonCourant == null) {
                 CelluleJeu[i][n].affecterJeton(j) ;
                 return true ;
-            } else return false;
-        } return false;
+            }
+        } 
+        return false;
     }
     
     public boolean etreGagnantePourJoueur(Joueur joueur){
