@@ -20,7 +20,6 @@ public class SP4_console_ROGE_EUDES {
         Partie p = new Partie(anais,amelie);
         
         p.initialiserPartie();
-        p.attribuerCouleurAuxJoueurs();
         
         System.out.println(anais.Couleur);
         System.out.println(amelie.Couleur);
@@ -28,7 +27,12 @@ public class SP4_console_ROGE_EUDES {
         System.out.println(anais.nombreJetonsRestants);
         
         p.grilleJeu.afficherGrilleSurConsole();
+        //
+       
         p.debuterPartie();
+        
+        System.out.println(amelie.ListeJetons[1].Couleur);
+        System.out.println(anais.ListeJetons[20].Couleur);
         
     }
     

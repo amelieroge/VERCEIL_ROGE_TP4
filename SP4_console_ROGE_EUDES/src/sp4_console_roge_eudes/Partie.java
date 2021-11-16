@@ -42,7 +42,8 @@ public class Partie {
     }
     
     public void initialiserPartie(){
-        grilleJeu = new Grille();                                  
+        grilleJeu = new Grille();        
+        this.attribuerCouleurAuxJoueurs();
         Jeton j = new Jeton(ListeJoueurs[0].Couleur) ;
         for (int i=0 ; i<21 ; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
@@ -84,19 +85,24 @@ public class Partie {
             do
             {
                 colonne=sc.nextInt();
+                grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants], colonne);
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null ;
+                joueurCourant.nombreJetonsRestants --;
+                grilleJeu.afficherGrilleSurConsole();
+                
             }
             while (((colonne<0) || (colonne>6)) && grilleJeu.colonneRemplie(colonne)==false) ; //si clolonne dans bornes et si colonne pas remplie
-            grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants], colonne);
+            /*grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants], colonne);
             joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = null ;
             joueurCourant.nombreJetonsRestants --;
-
+*/
             if (joueurCourant==ListeJoueurs[0]) { //Changement de joueur courant
                 joueurCourant=ListeJoueurs[1] ;
             } else {
                 joueurCourant=ListeJoueurs[0] ;
             }
             
-            if (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == true)) || (grilleJeu.etreRemplie()==false) || (joueurCourant.nombreJetonsRestants == 0)) {
+            if (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) == true) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) == true)) || (grilleJeu.etreRemplie()==true) || (joueurCourant.nombreJetonsRestants == 0)) {
                 TestFin = true ;
                 System.out.println("Si tu lis ca tu as reussi a finir le code donc tu es une personne incroyable <3");
             }
