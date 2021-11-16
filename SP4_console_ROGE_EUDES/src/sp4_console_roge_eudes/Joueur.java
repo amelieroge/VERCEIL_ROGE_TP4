@@ -45,7 +45,7 @@ public class Joueur {
 // +boolean utiliserDesintegrateur()
         
     public boolean ajouterJeton(Jeton j) {
-        if (nombreJetonsRestants <21) {
+        if (nombreJetonsRestants <= 21) {
             ListeJetons[nombreJetonsRestants]=j ;
             nombreJetonsRestants++ ;
             return true ;

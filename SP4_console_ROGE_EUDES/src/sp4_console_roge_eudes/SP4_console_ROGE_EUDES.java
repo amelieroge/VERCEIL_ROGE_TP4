@@ -29,7 +29,7 @@ public class SP4_console_ROGE_EUDES {
         p.grilleJeu.afficherGrilleSurConsole();
         //
        
-        p.debuterPartie();
+        p.debuterPartie1();
         
         System.out.println(amelie.ListeJetons[1].Couleur);
         System.out.println(anais.ListeJetons[20].Couleur);
