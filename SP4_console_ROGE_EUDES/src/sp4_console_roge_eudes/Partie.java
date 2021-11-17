@@ -37,6 +37,19 @@ public class Partie {
         
         if (ListeJoueurs[0].Couleur == "rouge") joueurCourant = ListeJoueurs[0];
         else joueurCourant = ListeJoueurs[1];
+        
+        Random r = new Random(); //Placer les trous noirs
+        int n ;
+        int m ;
+        for (int i=0 ; i<5 ; i++){
+            do{
+                n = r.nextInt(6);
+                m = r.nextInt(7);
+                grilleJeu.placerTrouNoir(n,m);
+            }while (grilleJeu.placerTrouNoir(n,m)==true) ;
+            
+        }
+        
     }
     
     /*
@@ -99,6 +112,8 @@ public class Partie {
             
             joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = null ;
             joueurCourant.nombreJetonsRestants --;
+            
+            
             
             grilleJeu.afficherGrilleSurConsole();
             

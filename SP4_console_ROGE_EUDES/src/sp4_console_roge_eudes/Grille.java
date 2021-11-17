@@ -96,7 +96,8 @@ public class Grille {
         String res1 = "";
         for (int i = 5 ; i >= 0 ; i--){ //lignes
             for (int j = 0 ; j <= 6 ; j++){ //colonnes
-                if (CelluleJeu[i][j].jetonCourant == null) res += " x ";
+                if (CelluleJeu[i][j].presenceTrouNoir() ==true) res += "\u001B[34m O \u001B[30m";
+                if (CelluleJeu[i][j].jetonCourant == null && CelluleJeu[i][j].presenceTrouNoir()==false) res += " x ";
                 else {if (CelluleJeu[i][j].lireCouleurDuJeton() == "rouge") res += ("\u001B[31m R \u001B[30m");
                      if (CelluleJeu[i][j].lireCouleurDuJeton() == "jaune") res += ("\u001B[33m J \u001B[30m");}
                 //System.out.println(res);
@@ -119,4 +120,11 @@ public class Grille {
     boolean colonneRemplie(int colonne){
         if (CelluleJeu[5][colonne] == null) return false;
         else return true;}
+    
+    public boolean placerTrouNoir(int n, int m) {
+        if ( CelluleJeu[n][m].presenceTrouNoir()==false) {
+             CelluleJeu[n][m].placerTrouNoir() ; 
+        return true ; }
+        else { return false ;}
+    }
 }
