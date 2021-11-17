@@ -1,22 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package sp4_console_roge_eudes;
-/* Joueur
-
--String Nom
--String Couleur
--Jeton [] ListeJetons
--int nombreDesintegrateurs v4
--int nombreJetonsRestants
-
-+Joueur (String)
-+void affecterCouleur(String)
-+boolean ajouterJeton(Jeton)
-+void obtenirDesintegrateur() v4
-+boolean utiliserDesintegrateur() v4
- */
 
 public class Joueur {
    String Nom ;
@@ -34,18 +16,9 @@ public class Joueur {
    public void affecterCouleur(String c){
        Couleur = c;
    }
-   
-   public String RecupCouleur () {
-       return Couleur ;
-   }
-   
-   
-// +boolean recevoirJeton(Jeton)
-// +void obtenirDesintegrateur()
-// +boolean utiliserDesintegrateur()
-        
-    public boolean ajouterJeton(Jeton j) {
-        if (nombreJetonsRestants <= 21) {
+  
+   public boolean ajouterJeton(Jeton j) {
+        if (nombreJetonsRestants < 21) {
             ListeJetons[nombreJetonsRestants]=j ;
             nombreJetonsRestants++ ;
             return true ;
