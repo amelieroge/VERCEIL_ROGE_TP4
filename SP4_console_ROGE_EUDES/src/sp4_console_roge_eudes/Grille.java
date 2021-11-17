@@ -47,37 +47,33 @@ public class Grille {
     }
     
     public boolean etreGagnantePourJoueur(Joueur joueur){
-        for (int i = 0 ; i < 5 ; i++){
-            for (int j = 0 ; j < 3 ; j++){
-                if ((CelluleJeu[i][j].jetonCourant == null) || (CelluleJeu[i][j+1].jetonCourant == null) || (CelluleJeu[i][j+2].jetonCourant == null) 
-                        || (CelluleJeu[i][j+3].jetonCourant == null)) break;
+        for (int i = 0 ; i <= 5 ; i++){
+            for (int j = 0 ; j <= 3 ; j++){
                 if ((CelluleJeu[i][j].lireCouleurDuJeton() == CelluleJeu[i][j+1].lireCouleurDuJeton()
                         && CelluleJeu[i][j].lireCouleurDuJeton() == CelluleJeu[i][j+2].lireCouleurDuJeton()
-                        && CelluleJeu[i][j].lireCouleurDuJeton() == CelluleJeu[i][j+3].lireCouleurDuJeton())) return true;}}
+                        && CelluleJeu[i][j].lireCouleurDuJeton() == CelluleJeu[i][j+3].lireCouleurDuJeton()
+                        && CelluleJeu[i][j].lireCouleurDuJeton() == joueur.Couleur)) return true;}}
 
-        for (int k = 0 ; k < 2 ; k++){
-            for (int l = 0 ; l < 6 ; l++){
-                if ((CelluleJeu[k][l].jetonCourant == null) || (CelluleJeu[k+1][l].jetonCourant == null) || (CelluleJeu[k+2][l].jetonCourant == null) 
-                        || (CelluleJeu[k+3][l].jetonCourant == null)) break;
+        for (int k = 0 ; k <= 2 ; k++){
+            for (int l = 0 ; l <= 6 ; l++){
                 if (CelluleJeu[k][l].lireCouleurDuJeton() == CelluleJeu[k+1][l].lireCouleurDuJeton()
                         && CelluleJeu[k][l].lireCouleurDuJeton() == CelluleJeu[k+2][l].lireCouleurDuJeton()
-                        && CelluleJeu[k][l].lireCouleurDuJeton() == CelluleJeu[k+3][l].lireCouleurDuJeton()) return true;}}
+                        && CelluleJeu[k][l].lireCouleurDuJeton() == CelluleJeu[k+3][l].lireCouleurDuJeton()
+                        && CelluleJeu[k][l].lireCouleurDuJeton() == joueur.Couleur) return true;}}
 
-        for (int a = 0 ; a < 2 ; a++){
-            for (int b = 0 ; b < 3 ; b++){
-                if ((CelluleJeu[a][b].jetonCourant == null) || (CelluleJeu[a+1][b+1].jetonCourant == null) || (CelluleJeu[a+2][b+2].jetonCourant == null)
-                        || (CelluleJeu[a+3][b+3].jetonCourant == null)) break;
+        for (int a = 0 ; a <= 2 ; a++){
+            for (int b = 0 ; b <= 3 ; b++){
                 if (CelluleJeu[a][b].lireCouleurDuJeton() == CelluleJeu[a+1][b+1].lireCouleurDuJeton()
                         && CelluleJeu[a][b].lireCouleurDuJeton() == CelluleJeu[a+2][b+2].lireCouleurDuJeton()
-                        && CelluleJeu[a][b].lireCouleurDuJeton() == CelluleJeu[a+3][b+3].lireCouleurDuJeton()) return true;}}
+                        && CelluleJeu[a][b].lireCouleurDuJeton() == CelluleJeu[a+3][b+3].lireCouleurDuJeton()
+                        && CelluleJeu[a][b].lireCouleurDuJeton() == joueur.Couleur) return true;}}
 
-        for (int m = 3 ; m < 5 ; m++){
-            for (int n = 0 ; n < 3 ; n++){
-                if ((CelluleJeu[m][n].jetonCourant == null) || (CelluleJeu[m-1][n-1].jetonCourant == null) || (CelluleJeu[m-2][n-2].jetonCourant == null) 
-                        || (CelluleJeu[m-3][n-3].jetonCourant == null)) break;
-                if (CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-1][n-1].lireCouleurDuJeton()
-                        && CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-2][n-2].lireCouleurDuJeton()
-                        && CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-3][n-3].lireCouleurDuJeton()) return true;}}
+        for (int m = 3 ; m <= 5 ; m++){
+            for (int n = 0 ; n <= 3 ; n++){
+                if (CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-1][n+1].lireCouleurDuJeton()
+                        && CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-2][n+2].lireCouleurDuJeton()
+                        && CelluleJeu[m][n].lireCouleurDuJeton() == CelluleJeu[m-3][n+3].lireCouleurDuJeton()
+                        && CelluleJeu[m][n].lireCouleurDuJeton() == joueur.Couleur) return true;}}
  
         return false;
     }

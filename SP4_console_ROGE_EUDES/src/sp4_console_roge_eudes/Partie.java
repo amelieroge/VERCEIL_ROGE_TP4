@@ -85,11 +85,16 @@ public class Partie {
     public void debuterPartie1(){ 
 
         do {
-            System.out.println(joueurCourant.Nom + ", c'est à toi de jouer");
+            int colonne;
             
-            Scanner sc = new Scanner(System.in);
-            int colonne = sc.nextInt();
-       
+            do {
+                System.out.println(joueurCourant.Nom + ", c'est à toi de jouer");
+
+                Scanner sc = new Scanner(System.in);
+                colonne = sc.nextInt();
+                
+            } while (colonne <0 || colonne>6);
+                    
             grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
             
             joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = null ;
@@ -100,7 +105,9 @@ public class Partie {
             if (joueurCourant==ListeJoueurs[0]) joueurCourant=ListeJoueurs[1];
             else joueurCourant=ListeJoueurs[0];
                    
-        } while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) || (grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true)) || (grilleJeu.etreRemplie()==true) || (joueurCourant.nombreJetonsRestants != 0)) ; //si clolonne dans bornes et si colonne pas remplie
+        } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) ; //si clolonne dans bornes et si colonne pas remplie
+                   
+        //} while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) && grilleJeu.etreRemplie() != true && joueurCourant.nombreJetonsRestants != 0)) ; //si clolonne dans bornes et si colonne pas remplie
     }
 }
 
