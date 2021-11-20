@@ -41,13 +41,15 @@ public class Partie {
         Random r = new Random(); //Placer les trous noirs
         int n ;
         int m ;
-        for (int i=0 ; i<5 ; i++){
-            do{
-                n = r.nextInt(6);
-                m = r.nextInt(7);
+        int i=0 ;
+        while ( i<5 ){
+            n = r.nextInt(6);
+            m = r.nextInt(7);
+            System.out.println(n +" " + m) ;
+            System.out.println(grilleJeu.CelluleJeu[n][m].presenceTrouNoir()) ;
+            if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false) {
                 grilleJeu.placerTrouNoir(n,m);
-            }while (grilleJeu.placerTrouNoir(n,m)==true) ;
-            
+                i++ ;}
         }
         
     }
