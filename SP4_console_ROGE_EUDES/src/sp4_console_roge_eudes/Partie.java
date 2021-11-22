@@ -49,7 +49,7 @@ public class Partie {
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false) {
                 grilleJeu.placerTrouNoir(n,m);
                 if (j<2) {
-                    System.out.println(n +" " + m) ;
+                    //System.out.println(n +" " + m) ;
                     grilleJeu.placerDesintegrateur(n, m);
                     j++ ;
                 }
@@ -60,17 +60,19 @@ public class Partie {
         while ( i<3 ){
             n = r.nextInt(6);
             m = r.nextInt(7);
-            System.out.println(n +" " + m) ;
-            System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
+            //System.out.println(n +" " + m) ;
+            //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false && grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()==false) {
                 grilleJeu.placerDesintegrateur(n,m);
-                System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
+                //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
                 i++ ;}
         }
         
     }
     
     public void debuterPartie1(){ 
+        
+        grilleJeu.afficherGrilleSurConsole();
 
         do {
             int colonne;
@@ -115,16 +117,19 @@ public class Partie {
                 if (grilleJeu.recupererJeton(ligne, colonne2) == null) {
                     System.out.println("Impossible de récupérer le jeton");
                 } else {
+                    grilleJeu.recupererJeton(ligne, colonne2);
+                    Jeton j = grilleJeu.recupererJeton(ligne, colonne2);
+                    joueurCourant.nombreJetonsRestants ++;
+                    joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = j;
+                    grilleJeu.afficherGrilleSurConsole();
                 
-                grilleJeu.recupererJeton(ligne, colonne2);
-                
-                joueurCourant.nombreJetonsRestants ++;
-                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = grilleJeu.recupererJeton(ligne, colonne2);
-            }}
+                if (joueurCourant==ListeJoueurs[0]) joueurCourant=ListeJoueurs[1];
+                else joueurCourant=ListeJoueurs[0];
+                }
+            }
                    
         } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) ; //si clolonne dans bornes et si colonne pas remplie
                    
         //} while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) && grilleJeu.etreRemplie() != true && joueurCourant.nombreJetonsRestants != 0)) ; //si clolonne dans bornes et si colonne pas remplie
     }
 }
- 

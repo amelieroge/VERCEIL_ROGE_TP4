@@ -6,7 +6,6 @@ package sp4_console_roge_eudes;
 
 public class Grille {
     Cellule [][] CelluleJeu ;
-    
     public Grille () {
         CelluleJeu = new Cellule[6][7]; // 6 se balader sur ligne / 7 se balader sur colonne
         for (int i = 0 ; i < 6 ; i++){
@@ -15,7 +14,6 @@ public class Grille {
             }
         }
     }
-    
     public boolean ajouterJetonDansColonne(Jeton j,int n) {
         for (int i = 0 ; i <6  ; i++) {
             if (CelluleJeu[i][n].jetonCourant == null) {
@@ -25,7 +23,6 @@ public class Grille {
         } 
         return false;
     }
-    
     public boolean etreGagnantePourJoueur(Joueur joueur){
         for (int i = 0 ; i <= 5 ; i++){
             for (int j = 0 ; j <= 3 ; j++){
@@ -57,12 +54,10 @@ public class Grille {
  
         return false;
     }
-    
     public boolean etreRemplie(){
         if (colonneRemplie(1) && colonneRemplie(2) && colonneRemplie(3) && colonneRemplie(4) && colonneRemplie(5) && colonneRemplie(6) && colonneRemplie(0)) return true;
         else return false;
     }
-    
     public void viderGrille(){
        for (int i = 0 ; i < 5 ; i++){
             for (int j = 0 ; i < 6 ; j++){
@@ -70,7 +65,6 @@ public class Grille {
             }
         }
     }
-    
     public void afficherGrilleSurConsole(){
         String res = "";
         String res1 = "";
@@ -89,7 +83,6 @@ public class Grille {
         } 
         System.out.println(res1);
     }
-    
     public boolean celluleOccupee(int ligne,int colonne){
         if (CelluleJeu[ligne][colonne] == null) return false;
         else return true;
@@ -104,8 +97,8 @@ public class Grille {
         else return true;}
     
     public void tasserGrille(int colonne){
-        for (int i = 5 ; i >= 0 ; i--){
-            if (CelluleJeu[i][colonne] == null){
+        for (int i = 0 ; i < 5 ; i++){
+            if (CelluleJeu[i][colonne].jetonCourant == null && CelluleJeu[i+1][colonne].jetonCourant != null){
                 for (int j = i ; j < 5 ; j++){
                     CelluleJeu[j][colonne].jetonCourant = CelluleJeu[j+1][colonne].jetonCourant;
                     CelluleJeu[j+1][colonne].jetonCourant = null;}}}
@@ -116,10 +109,11 @@ public class Grille {
             return null;
         } else {        
         Jeton jetonARetourner = CelluleJeu[ligne][colonne].jetonCourant;
-        CelluleJeu[ligne][colonne] = null;
+        CelluleJeu[ligne][colonne].jetonCourant = null;
         tasserGrille(colonne);
         return jetonARetourner;}
     }
+    
     public boolean placerTrouNoir(int n, int m) {
         if ( CelluleJeu[n][m].presenceTrouNoir()==false) {
              CelluleJeu[n][m].placerTrouNoir() ; 
@@ -134,6 +128,7 @@ public class Grille {
         else { return false ;
         }
     }
+    
     public boolean supprimerJeton(int n,int m){
         if (CelluleJeu[n][m] != null) {
             CelluleJeu[n][m] = null ;
@@ -141,5 +136,4 @@ public class Grille {
         else { return false ;
         }
     }
-    
 }
