@@ -76,7 +76,10 @@ public class Grille {
         String res1 = "";
         for (int i = 5 ; i >= 0 ; i--){ //lignes
             for (int j = 0 ; j <= 6 ; j++){ //colonnes
-                if (CelluleJeu[i][j].jetonCourant == null) res += " x ";
+                if (CelluleJeu[i][j].presenceTrouNoir() ==true) res += "\u001B[34m O \u001B[30m";
+                if (CelluleJeu[i][j].presenceTrouNoir() ==false && CelluleJeu[i][j].presenceDesintegrateur()) res += "\u001B[35m § \u001B[30m";
+                if (CelluleJeu[i][j].jetonCourant == null && CelluleJeu[i][j].presenceTrouNoir()==false
+                        && CelluleJeu[i][j].presenceDesintegrateur()==false ) res += " x ";
                 else {if (CelluleJeu[i][j].lireCouleurDuJeton() == "rouge") res += ("\u001B[31m R \u001B[30m");
                      if (CelluleJeu[i][j].lireCouleurDuJeton() == "jaune") res += ("\u001B[33m J \u001B[30m");}
                 //System.out.println(res);
@@ -117,4 +120,26 @@ public class Grille {
         tasserGrille(colonne);
         return jetonARetourner;}
     }
+    public boolean placerTrouNoir(int n, int m) {
+        if ( CelluleJeu[n][m].presenceTrouNoir()==false) {
+             CelluleJeu[n][m].placerTrouNoir() ; 
+        return true ; }
+        else { return false ;}
+    }
+    
+    public boolean placerDesintegrateur(int n,int m) { //V4
+        if (CelluleJeu[n][m].presenceDesintegrateur()==false) {
+            CelluleJeu[n][m].placerDesintegrateur() ;
+            return true ; }
+        else { return false ;
+        }
+    }
+    public boolean supprimerJeton(int n,int m){
+        if (CelluleJeu[n][m] != null) {
+            CelluleJeu[n][m] = null ;
+            return true ; }
+        else { return false ;
+        }
+    }
+    
 }

@@ -20,6 +20,7 @@ public class SP4_console_ROGE_EUDES {
         Partie p = new Partie(anais,amelie);
         
         p.initialiserPartie();
+        p.grilleJeu.afficherGrilleSurConsole();
         
         /*p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 2);
         p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 3);

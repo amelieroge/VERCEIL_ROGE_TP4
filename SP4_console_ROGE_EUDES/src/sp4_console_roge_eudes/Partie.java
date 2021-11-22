@@ -37,6 +37,37 @@ public class Partie {
         
         if (ListeJoueurs[0].Couleur == "rouge") joueurCourant = ListeJoueurs[0];
         else joueurCourant = ListeJoueurs[1];
+        
+        Random r = new Random(); //Placer les trous noirs
+        int n ;
+        int m ;
+        int i=0 ;
+        int j = 0 ;
+        while ( i<5 ){
+            n = r.nextInt(6);
+            m = r.nextInt(7);
+            if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false) {
+                grilleJeu.placerTrouNoir(n,m);
+                if (j<2) {
+                    System.out.println(n +" " + m) ;
+                    grilleJeu.placerDesintegrateur(n, m);
+                    j++ ;
+                }
+                i++ ;}
+        }
+        
+        i=0 ;//Placer les desintegrateurs
+        while ( i<3 ){
+            n = r.nextInt(6);
+            m = r.nextInt(7);
+            System.out.println(n +" " + m) ;
+            System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
+            if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false && grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()==false) {
+                grilleJeu.placerDesintegrateur(n,m);
+                System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
+                i++ ;}
+        }
+        
     }
     
     public void debuterPartie1(){ 
