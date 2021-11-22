@@ -4,26 +4,6 @@
  */
 package sp4_console_roge_eudes;
 
-/* Grille
- 
-- Cellule [6][7] CellulesJeu fait
-
-+ Grille() fait
-+ boolean ajouterJetonDansColonne(Jeton, int) fait
-+ boolean etreRemplie() fait
-+ void viderGrille() fait
-+ void afficherGrilleSurConsole() fait
-+ boolean celluleOccupee(int,int) fait
-+ String lireCouleurDuJeton(int, int) fait
-+ boolean etreGagnantPourJoueur(Joueur) fait
-+ void tasserGrille(int) v3
-+ boolean colonneRemplie(int) fait
-+ boolean placerDesintegrateur(int,int) v4
-+ boolean placerTrouNoir(int, int) v2
-+ boolean supprimerJeton(int,int) v4
-+ Jeton recupererJeton(int,int) v3
- */
-
 public class Grille {
     Cellule [][] CelluleJeu ;
     
@@ -119,10 +99,27 @@ public class Grille {
         return CelluleJeu[ligne][colonne].lireCouleurDuJeton();
     }
  
-    boolean colonneRemplie(int colonne){
+    public boolean colonneRemplie(int colonne){
         if (CelluleJeu[5][colonne] == null) return false;
         else return true;}
     
+    public void tasserGrille(int colonne){
+        for (int i = 5 ; i >= 0 ; i--){
+            if (CelluleJeu[i][colonne] == null){
+                for (int j = i ; j < 5 ; j++){
+                    CelluleJeu[j][colonne].jetonCourant = CelluleJeu[j+1][colonne].jetonCourant;
+                    CelluleJeu[j+1][colonne].jetonCourant = null;}}}
+    }
+    
+    public Jeton recupererJeton(int ligne, int colonne){
+        if (CelluleJeu[ligne][colonne].recupererJeton() == null){
+            return null;
+        } else {        
+        Jeton jetonARetourner = CelluleJeu[ligne][colonne].recupererJeton();
+        CelluleJeu[ligne][colonne] = null;
+        tasserGrille(colonne);
+        return jetonARetourner;}
+    }
     public boolean placerTrouNoir(int n, int m) {
         if ( CelluleJeu[n][m].presenceTrouNoir()==false) {
              CelluleJeu[n][m].placerTrouNoir() ; 
