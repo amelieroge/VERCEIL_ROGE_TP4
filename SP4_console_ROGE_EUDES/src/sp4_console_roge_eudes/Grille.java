@@ -141,8 +141,8 @@ public class Grille {
     }
     
     public boolean supprimerJeton(int n,int m){
-        if (CelluleJeu[n][m] != null) {
-            CelluleJeu[n][m] = null ;
+        if (CelluleJeu[n][m].jetonCourant != null) {
+            CelluleJeu[n][m].jetonCourant = null ;
             return true ; }
         else { return false ;
         }
