@@ -112,7 +112,7 @@ public class Grille {
         if (CelluleJeu[ligne][colonne].recupererJeton() == null){
             return null;
         } else {        
-        Jeton jetonARetourner = CelluleJeu[ligne][colonne].recupererJeton();
+        Jeton jetonARetourner = CelluleJeu[ligne][colonne].jetonCourant;
         CelluleJeu[ligne][colonne] = null;
         tasserGrille(colonne);
         return jetonARetourner;}
