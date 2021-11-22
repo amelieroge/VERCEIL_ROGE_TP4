@@ -21,10 +21,12 @@ package sp4_console_roge_eudes;
 public class Cellule {
     Jeton jetonCourant ;
     boolean trouNoir ;
+    boolean desintegrateur ;
     
     public Cellule () {
         jetonCourant = null ;
         trouNoir = false ;
+        desintegrateur = false ;
     }
     
     public boolean affecterJeton(Jeton jeton){
@@ -40,7 +42,7 @@ public class Cellule {
         else return jetonCourant.lireCouleur();
     }
     
-    public boolean placerTrouNoir() {
+    public boolean placerTrouNoir() { //V3
         if (trouNoir == false) { 
             trouNoir = true ;
             return true ;
@@ -61,5 +63,33 @@ public class Cellule {
             return true ; }
         else { return false ;}
     }
-}
+    
+    public boolean supprimerJeton() { //V4
+        if (jetonCourant != null) {
+            jetonCourant = null ;
+            return true ;
+        }
+        else return false ;
+    }
+    
+    public boolean placerDesintegrateur(){
+        if (desintegrateur == false) {
+            desintegrateur = true ;
+            return true ;}
+        else return false ;
+    }
+    
+    public boolean presenceDesintegrateur() {
+        if (desintegrateur == true) return true ;
+        else return false ;
+    }
+    
+    public boolean recupererDesintegrateur() {
+        if (desintegrateur == true) {
+            desintegrateur = true ;
+            return true ;}
+        else return false ;
+        }
+    }
+
 

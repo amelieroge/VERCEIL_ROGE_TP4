@@ -42,13 +42,29 @@ public class Partie {
         int n ;
         int m ;
         int i=0 ;
+        int j = 0 ;
         while ( i<5 ){
             n = r.nextInt(6);
             m = r.nextInt(7);
-            System.out.println(n +" " + m) ;
-            System.out.println(grilleJeu.CelluleJeu[n][m].presenceTrouNoir()) ;
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false) {
                 grilleJeu.placerTrouNoir(n,m);
+                if (j<2) {
+                    System.out.println(n +" " + m) ;
+                    grilleJeu.placerDesintegrateur(n, m);
+                    j++ ;
+                }
+                i++ ;}
+        }
+        
+        i=0 ;//Placer les desintegrateurs
+        while ( i<3 ){
+            n = r.nextInt(6);
+            m = r.nextInt(7);
+            System.out.println(n +" " + m) ;
+            System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
+            if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir()==false && grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()==false) {
+                grilleJeu.placerDesintegrateur(n,m);
+                System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
                 i++ ;}
         }
         
@@ -108,7 +124,7 @@ public class Partie {
                 Scanner sc = new Scanner(System.in);
                 colonne = sc.nextInt();
                 
-            } while (colonne <0 || colonne>6);
+            } while (colonne <0 || colonne>6 || grilleJeu.colonneRemplie(colonne)==false);
                     
             grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
             

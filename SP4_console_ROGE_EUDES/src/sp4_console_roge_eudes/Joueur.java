@@ -5,12 +5,14 @@ public class Joueur {
    String Couleur ;
    int nombreJetonsRestants ;
    Jeton [] ListeJetons ;
+   int nombreDesintegrateurs ;
    
    public Joueur(String nom){ // Constructeur
        Nom = nom ;
        Couleur = "" ;
        ListeJetons = new Jeton [21] ;
        nombreJetonsRestants = 0 ;
+       nombreDesintegrateurs = 0 ;
    }
    
    public void affecterCouleur(String c){
@@ -27,4 +29,10 @@ public class Joueur {
             return false ;
         }
     }
+   public void obtenirDesintegrateur(){
+       nombreDesintegrateurs = nombreDesintegrateurs +1 ;
+   }
+   public void utiliserDesintegrateur(){
+       nombreDesintegrateurs = nombreDesintegrateurs -1 ;
+   }
 }
