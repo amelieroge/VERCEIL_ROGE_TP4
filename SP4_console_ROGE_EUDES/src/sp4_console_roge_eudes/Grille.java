@@ -26,6 +26,16 @@ public class Grille {
         return false;
     }
     
+    public int connaitreLigne(int c){
+        if (CelluleJeu[5][c].jetonCourant != null) return 6 ;
+        for (int i=0 ; i<5 ; i++){
+            if (CelluleJeu[i][c].jetonCourant != null && CelluleJeu[i+1][c].jetonCourant == null){
+                return i ;
+            }
+        } 
+        return 0 ;
+    }
+    
     public boolean etreGagnantePourJoueur(Joueur joueur){
         for (int i = 0 ; i <= 5 ; i++){
             for (int j = 0 ; j <= 3 ; j++){
