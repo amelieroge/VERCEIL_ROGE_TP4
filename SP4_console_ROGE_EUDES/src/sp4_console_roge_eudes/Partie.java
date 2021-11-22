@@ -63,11 +63,8 @@ public class Partie {
         while (i < 3) {
             n = r.nextInt(6);
             m = r.nextInt(7);
-            //System.out.println(n +" " + m) ;
-            //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir() == false && grilleJeu.CelluleJeu[n][m].presenceDesintegrateur() == false) {
                 grilleJeu.placerDesintegrateur(n, m);
-                //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
                 i++;
             }
         }
@@ -167,8 +164,6 @@ public class Partie {
                 }
             }
 
-        } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true); //si clolonne dans bornes et si colonne pas remplie
-
-        //} while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) && grilleJeu.etreRemplie() != true && joueurCourant.nombreJetonsRestants != 0)) ; //si clolonne dans bornes et si colonne pas remplie
+        } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true); 
     }
 }
