@@ -114,14 +114,14 @@ public class Partie {
                 Scanner sc3 = new Scanner(System.in);
                 ligne = sc3.nextInt();
                 
-                if (grilleJeu.recupererJeton(ligne, colonne2) == null) {
-                    System.out.println("Impossible de récupérer le jeton");
-                } else {
-                    grilleJeu.recupererJeton(ligne, colonne2);
-                    Jeton j = grilleJeu.recupererJeton(ligne, colonne2);
+                Jeton j = grilleJeu.recupererJeton(ligne, colonne2);
+                  
+                if (j != null && j.Couleur == joueurCourant.Couleur) {
                     joueurCourant.nombreJetonsRestants ++;
                     joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = j;
                     grilleJeu.afficherGrilleSurConsole();
+                    
+                if (j == null || j.Couleur != joueurCourant.Couleur) System.out.println("Impossible de récupérer le jeton");
                 
                 if (joueurCourant==ListeJoueurs[0]) joueurCourant=ListeJoueurs[1];
                 else joueurCourant=ListeJoueurs[0];

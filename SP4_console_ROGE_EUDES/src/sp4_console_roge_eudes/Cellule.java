@@ -18,6 +18,7 @@ public class Cellule {
         if (jetonCourant == null){
             jetonCourant = jeton;
             if (presenceTrouNoir()==true) activerTrouNoir() ;
+            if (presenceDesintegrateur()) desintegrateur = false;
             return true;
         } else return false;
     }

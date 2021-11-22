@@ -20,8 +20,5 @@ public class Jeton {
     public String lireCouleur (){
         return Couleur ;
     }
-    
-    public String toString(){
-        return Couleur;
-    }
+
 }
