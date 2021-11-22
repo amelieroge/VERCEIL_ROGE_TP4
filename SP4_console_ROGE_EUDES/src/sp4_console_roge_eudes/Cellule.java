@@ -1,6 +1,3 @@
-/*
-  v1 check
-*/
 package sp4_console_roge_eudes;
 
 public class Cellule {
@@ -81,6 +78,3 @@ public class Cellule {
         else return false ;
     }
 }
-        
-
-

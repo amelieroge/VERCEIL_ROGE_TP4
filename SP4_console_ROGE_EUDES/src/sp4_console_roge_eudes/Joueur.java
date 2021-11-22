@@ -29,9 +29,11 @@ public class Joueur {
             return false ;
         }
     }
+   
    public void obtenirDesintegrateur(){
        nombreDesintegrateurs = nombreDesintegrateurs +1 ;
    }
+   
    public void utiliserDesintegrateur(){
        nombreDesintegrateurs = nombreDesintegrateurs -1 ;
    }
