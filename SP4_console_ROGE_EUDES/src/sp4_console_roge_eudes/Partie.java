@@ -81,6 +81,7 @@ public class Partie {
             int ligne;
             
             System.out.println(joueurCourant.Nom + ", c'est à toi de jouer, que veux-tu faire ?\n1) Poser un jeton\n2) Récupérer un  jeton");
+            if (joueurCourant.nombreDesintegrateurs>0) System.out.println("3) Désintegrer un  jeton");
             
             Scanner sc1 = new Scanner(System.in);
             indice = sc1.nextInt();
@@ -94,9 +95,13 @@ public class Partie {
                     colonne = sc.nextInt();
 
                 } while (colonne <0 || colonne>6);
-
+                
+                if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur()==true) joueurCourant.nombreDesintegrateurs++ ; // Ajout d'un desintegrateur au joueur
                 grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
-
+                //if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur()==true) joueurCourant.nombreDesintegrateurs++ ; // Ajout d'un desintegrateur au joueur
+                System.out.println(grilleJeu.connaitreLigne(colonne) + " " + colonne);
+                System.out.println("nbr desintegrateur joueur courant : " + joueurCourant.nombreDesintegrateurs);
+                
                 joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1] = null ;
                 joueurCourant.nombreJetonsRestants --;
 
@@ -123,10 +128,18 @@ public class Partie {
                     
                 if (j == null || j.Couleur != joueurCourant.Couleur) System.out.println("Impossible de récupérer le jeton");
                 
+                grilleJeu.recupererJeton(ligne, colonne2);
+                
+                joueurCourant.nombreJetonsRestants ++;
+                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = grilleJeu.recupererJeton(ligne, colonne2);}
+            
+            if (indice == 3 && joueurCourant.nombreDesintegrateurs>0) {
+                System.out.println("Easter egg");
+            }
                 if (joueurCourant==ListeJoueurs[0]) joueurCourant=ListeJoueurs[1];
                 else joueurCourant=ListeJoueurs[0];
                 }
-            }
+            
                    
         } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) ; //si clolonne dans bornes et si colonne pas remplie
                    

@@ -20,19 +20,16 @@ public class SP4_console_ROGE_EUDES {
         Partie p = new Partie(anais,amelie);
         
         p.initialiserPartie();
-        p.grilleJeu.afficherGrilleSurConsole();
-        
-        /*p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 2);
-        p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 3);
-        p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 4);
-        p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 5);
-       
-        System.out.println(p.grilleJeu.etreGagnantePourJoueur(amelie));*/
+
         p.debuterPartie1();
         
-        //System.out.println(amelie.ListeJetons[1].Couleur);
-        //System.out.println(anais.ListeJetons[20].Couleur);
-        
+        /*p.grilleJeu.afficherGrilleSurConsole();
+        p.grilleJeu.ajouterJetonDansColonne(anais.ListeJetons[anais.nombreJetonsRestants-1], 0);
+        p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 0);
+        p.grilleJeu.ajouterJetonDansColonne(anais.ListeJetons[anais.nombreJetonsRestants-1], 0);
+        p.grilleJeu.afficherGrilleSurConsole();
+        p.grilleJeu.recupererJeton(1, 0);
+        p.grilleJeu.afficherGrilleSurConsole();*/
     }
     
 }
