@@ -25,7 +25,7 @@ public class Grille {
     }
     
     public int connaitreLigne(int c){
-        if (CelluleJeu[5][c].jetonCourant != null) return 6 ;
+        if (CelluleJeu[5][c].jetonCourant != null) return 5 ;
         for (int i=0 ; i<5 ; i++){
             if (CelluleJeu[i][c].jetonCourant != null && CelluleJeu[i+1][c].jetonCourant == null){
                 return i ;

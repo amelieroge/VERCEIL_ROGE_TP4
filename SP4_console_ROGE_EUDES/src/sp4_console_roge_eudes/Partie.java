@@ -52,7 +52,6 @@ public class Partie {
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir() == false) {
                 grilleJeu.placerTrouNoir(n, m);
                 if (j < 2) {
-                    //System.out.println(n +" " + m) ;
                     grilleJeu.placerDesintegrateur(n, m);
                     j++;
                 }
@@ -102,12 +101,13 @@ public class Partie {
                     colonne = sc.nextInt();
 
                 } while (colonne < 0 || colonne > 6);
-
+                
+                grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne);
+                
                 if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur() == true) {
                     joueurCourant.nombreDesintegrateurs++; // Ajout d'un desintegrateur au joueur
                 }
-                grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne);
-                //if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur()==true) joueurCourant.nombreDesintegrateurs++ ; // Ajout d'un desintegrateur au joueur
+                
                 System.out.println(grilleJeu.connaitreLigne(colonne) + " " + colonne);
                 System.out.println("nbr desintegrateur joueur courant : " + joueurCourant.nombreDesintegrateurs);
 
