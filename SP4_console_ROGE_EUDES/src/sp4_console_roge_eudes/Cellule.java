@@ -14,8 +14,6 @@ public class Cellule {
     public boolean affecterJeton(Jeton jeton){
         if (jetonCourant == null){
             jetonCourant = jeton;
-            if (presenceTrouNoir()==true) activerTrouNoir() ;
-            //if (presenceDesintegrateur()==true) desintegrateur=false ;
             return true;
         } else return false;
     }

@@ -106,7 +106,7 @@ public class Grille {
     }
  
     public boolean colonneRemplie(int colonne){
-        if (CelluleJeu[5][colonne] == null) return false;
+        if (CelluleJeu[5][colonne].jetonCourant == null) return false;
         else return true;}
     
     public void tasserGrille(int colonne){

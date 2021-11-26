@@ -7,7 +7,7 @@ public class Joueur {
    Jeton [] ListeJetons ;
    int nombreDesintegrateurs ;
    
-   public Joueur(String nom){ // Constructeur
+   public Joueur(String nom){ 
        Nom = nom ;
        Couleur = "" ;
        ListeJetons = new Jeton [21] ;
