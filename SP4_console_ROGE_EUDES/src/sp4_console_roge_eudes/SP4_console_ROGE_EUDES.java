@@ -4,6 +4,7 @@
  */
 package sp4_console_roge_eudes;
 
+import java.util.Scanner;
 /**
  *
  * @author ASUS
@@ -14,22 +15,20 @@ public class SP4_console_ROGE_EUDES {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Joueur anais = new Joueur("Anais");
-        Joueur amelie = new Joueur("Amelie");
         
-        Partie p = new Partie(anais,amelie);
+        Scanner sc = new Scanner(System.in);
+        
+        Joueur Joueur1 = new Joueur(sc.nextLine()) ;
+        Joueur Joueur2 = new Joueur(sc.nextLine()) ;
+        
+        
+        Partie p = new Partie(Joueur1,Joueur2);
         
         p.initialiserPartie();
 
         p.debuterPartie1();
         
-        /*p.grilleJeu.afficherGrilleSurConsole();
-        p.grilleJeu.ajouterJetonDansColonne(anais.ListeJetons[anais.nombreJetonsRestants-1], 0);
-        p.grilleJeu.ajouterJetonDansColonne(amelie.ListeJetons[amelie.nombreJetonsRestants-1], 0);
-        p.grilleJeu.ajouterJetonDansColonne(anais.ListeJetons[anais.nombreJetonsRestants-1], 0);
-        p.grilleJeu.afficherGrilleSurConsole();
-        p.grilleJeu.recupererJeton(1, 0);
-        p.grilleJeu.afficherGrilleSurConsole();*/
+        
     }
     
 }
