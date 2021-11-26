@@ -65,11 +65,8 @@ public class Partie {
         while (i < 3) {
             n = r.nextInt(6);
             m = r.nextInt(7);
-            //System.out.println(n +" " + m) ;
-            //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir() == false && grilleJeu.CelluleJeu[n][m].presenceDesintegrateur() == false) {
                 grilleJeu.placerDesintegrateur(n, m);
-                //System.out.println(grilleJeu.CelluleJeu[n][m].presenceDesintegrateur()) ;
                 i++;
             }
         }
@@ -88,7 +85,13 @@ public class Partie {
             
             Scanner sc = new Scanner(System.in);
 
-            System.out.println(joueurCourant.Nom + ", c'est à toi de jouer, que veux-tu faire ?\n1) Poser un jeton\n2) Récupérer un  jeton");
+            System.out.println(joueurCourant.Nom + ", c'est à toi de jouer, que veux-tu faire ?\n1) Poser un jeton");
+            for (int i = 0 ; i <= 5 ; i++){
+                for (int j = 0 ; j <= 6 ; j++){
+                    if (grilleJeu.CelluleJeu[i][j].lireCouleurDuJeton() == joueurCourant.Couleur)
+                        System.out.println("2) Récupérer un  jeton");
+                }
+            }
             if (joueurCourant.nombreDesintegrateurs > 0) {
                 System.out.println("3) Désintegrer un  jeton");
             }
@@ -135,20 +138,21 @@ public class Partie {
 
                 Jeton j = grilleJeu.recupererJeton(ligne, colonne2);
 
+                if (j == null || j.Couleur != joueurCourant.Couleur) {
+                    System.out.println("Impossible de récupérer le jeton");
+                }
+                
                 if (j != null && j.Couleur == joueurCourant.Couleur) {
                     joueurCourant.nombreJetonsRestants++;
                     joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1] = j;
                     grilleJeu.afficherGrilleSurConsole();
                 }
-
-                if (j == null || j.Couleur != joueurCourant.Couleur) {
-                    System.out.println("Impossible de récupérer le jeton");
+                
+                if (joueurCourant == ListeJoueurs[0]) {
+                    joueurCourant = ListeJoueurs[1];
+                } else {
+                    joueurCourant = ListeJoueurs[0];
                 }
-
-                grilleJeu.recupererJeton(ligne, colonne2);
-
-                joueurCourant.nombreJetonsRestants++;
-                joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants] = grilleJeu.recupererJeton(ligne, colonne2);
             }
 
             if (indice == 3 && joueurCourant.nombreDesintegrateurs > 0) {
@@ -170,8 +174,6 @@ public class Partie {
                 }
             }
 
-        } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true); //si clolonne dans bornes et si colonne pas remplie
-
-        //} while (((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true) && grilleJeu.etreRemplie() != true && joueurCourant.nombreJetonsRestants != 0)) ; //si clolonne dans bornes et si colonne pas remplie
+        } while ((grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]) != true) && grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]) != true); 
     }
 }
