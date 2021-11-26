@@ -103,9 +103,10 @@ public class Partie {
                 } while (colonne < 0 || colonne > 6);
                 
                 grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne);
-                
+                System.out.println(grilleJeu.connaitreLigne(colonne)) ;
                 if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur() == true) {
                     joueurCourant.nombreDesintegrateurs++; // Ajout d'un desintegrateur au joueur
+                    grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].desintegrateur=false ;
                 }
                 
                 System.out.println(grilleJeu.connaitreLigne(colonne) + " " + colonne);
