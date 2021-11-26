@@ -17,7 +17,8 @@ public class Jeton {
     public Jeton (String couleur) {
         Couleur = couleur ;
     }
-    public String lireCouleur (){
+    public String lireCouleur (){ // vu que les variables sont sencées être privées, il aurait
+        // été utile de faire appel à un getteur d'argument pour lire la couleur du jeton
         return Couleur ;
     }
 

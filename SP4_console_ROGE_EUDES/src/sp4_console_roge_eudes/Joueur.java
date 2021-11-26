@@ -15,11 +15,11 @@ public class Joueur {
        nombreDesintegrateurs = 0 ;
    }
    
-   public void affecterCouleur(String c){
+   public void affecterCouleur(String c){ // permet de lier la méthode de "Partie" au joueur
        Couleur = c;
    }
   
-   public boolean ajouterJeton(Jeton j) {
+   public boolean ajouterJeton(Jeton j) { // ajoute des 21 jetons au joueur
         if (nombreJetonsRestants < 21) {
             ListeJetons[nombreJetonsRestants]=j ;
             nombreJetonsRestants++ ;
@@ -30,11 +30,12 @@ public class Joueur {
         }
     }
    
-   public void obtenirDesintegrateur(){
+   public void obtenirDesintegrateur(){ // incrémente le nombre de désintégrateurs du joueur
        nombreDesintegrateurs = nombreDesintegrateurs +1 ;
    }
    
-   public void utiliserDesintegrateur(){
+   public void utiliserDesintegrateur(){ // enlève le désintégrateur utilisé dans "Partie" de la liste des 
+       // désintégrateurs du joueur
        nombreDesintegrateurs = nombreDesintegrateurs -1 ;
    }
 }
