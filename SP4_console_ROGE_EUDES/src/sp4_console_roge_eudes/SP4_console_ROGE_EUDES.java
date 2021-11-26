@@ -18,15 +18,18 @@ public class SP4_console_ROGE_EUDES {
         
         Scanner sc = new Scanner(System.in);
         
+        // Saisie du pseudo des 2 joueurs
+        System.out.println("Entre ton pseudo jeune padawan");
         Joueur Joueur1 = new Joueur(sc.nextLine()) ;
         Joueur Joueur2 = new Joueur(sc.nextLine()) ;
         
+        Partie p = new Partie(Joueur1,Joueur2); // Création d'une nouvelle partie
         
-        Partie p = new Partie(Joueur1,Joueur2);
         
-        p.initialiserPartie();
-
-        p.debuterPartie1();
+        p.initialiserPartie();  // Initialisation de la partie (création 
+        //grille, couleurs, placement trous noirs, désintegrateurs)
+        
+        p.debuterPartie1(); //Lancement partie
         
         
     }

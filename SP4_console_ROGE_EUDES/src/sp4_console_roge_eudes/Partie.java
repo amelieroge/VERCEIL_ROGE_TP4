@@ -4,12 +4,13 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Partie {
-
+    
+    // Init des attributs de la classe
     Joueur[] ListeJoueurs = new Joueur[2];
     Joueur joueurCourant;
     Grille grilleJeu;
 
-    public Partie(Joueur j1, Joueur j2) {
+    public Partie(Joueur j1, Joueur j2) { // attribution des pseudos aux attributs
         ListeJoueurs[0] = j1;
         ListeJoueurs[1] = j2;
     }
@@ -27,10 +28,11 @@ public class Partie {
     }
 
     public void initialiserPartie() {
-        grilleJeu = new Grille();
+        grilleJeu = new Grille(); // creation  de la grille
         this.attribuerCouleurAuxJoueurs();
-
-        for (int i = 0; i < 21; i++) {
+        
+        //remplir des jauges de jetons des joueurs
+        for (int i = 0; i < 21; i++) { 
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
         }
