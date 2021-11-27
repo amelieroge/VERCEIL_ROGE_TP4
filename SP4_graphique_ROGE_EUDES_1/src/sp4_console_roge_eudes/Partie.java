@@ -28,6 +28,15 @@ public class Partie {
 
     public void initialiserPartie() {
         grilleJeu = new Grille();
+        
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Premier joueur :");
+        Joueur j1 = new Joueur(sc.next());
+        System.out.println("Second joueur :");
+        Joueur j2 = new Joueur(sc.next());
+        ListeJoueurs[0] = j1;
+        ListeJoueurs[1] = j2;
+        
         this.attribuerCouleurAuxJoueurs();
 
         for (int i = 0; i < 21; i++) {
@@ -54,8 +63,7 @@ public class Partie {
                 if (j < 2) {
                     grilleJeu.placerDesintegrateur(n, m);
                     j++;
-                }
-                i++;
+                } i++;
             }
         }
 
@@ -68,7 +76,6 @@ public class Partie {
                 i++;
             }
         }
-
     }
 
     public void debuterPartie1() {

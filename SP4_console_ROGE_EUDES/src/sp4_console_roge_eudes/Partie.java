@@ -30,6 +30,14 @@ public class Partie {
     public void initialiserPartie() {
         
         grilleJeu = new Grille(); // creation  de la grille
+        
+        Scanner sc = new Scanner(System.in); // creation des joueurs
+        System.out.println("Premier joueur :");
+        Joueur j1 = new Joueur(sc.next());
+        System.out.println("Second joueur :");
+        Joueur j2 = new Joueur(sc.next());
+        ListeJoueurs[0] = j1;
+        ListeJoueurs[1] = j2;
         this.attribuerCouleurAuxJoueurs();
         
         //remplir des jauges de jetons des joueurs
