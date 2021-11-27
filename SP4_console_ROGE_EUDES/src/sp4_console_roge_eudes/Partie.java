@@ -28,6 +28,7 @@ public class Partie {
     }
 
     public void initialiserPartie() {
+        
         grilleJeu = new Grille(); // creation  de la grille
         this.attribuerCouleurAuxJoueurs();
         
@@ -75,6 +76,9 @@ public class Partie {
 
     public void debuterPartie1() {
 
+        this.initialiserPartie(); // Initialisation de la partie (création 
+        //grille, couleurs, placement trous noirs, désintegrateurs)
+        
         grilleJeu.afficherGrilleSurConsole();
 
         do { // Tour de jeu
@@ -137,7 +141,8 @@ public class Partie {
                 Jeton j = grilleJeu.recupererJeton(ligne, colonne2);
 
                 if (j == null || j.Couleur != joueurCourant.Couleur) { 
-                    System.out.println("Impossible de récupérer le jeton");
+                    System.out.println("Impossible de récupérer le jeton"); // affiche un mesage d'erreur s'il n'y a pas de jeton
+                    // sur la case choisie ou si le jeton n'est pas de la couleur du joueur courant
                 }
                 
                 if (j != null && j.Couleur == joueurCourant.Couleur) { //Possible de le recuperer
@@ -159,8 +164,6 @@ public class Partie {
                 grilleJeu.tasserGrille(colonne2);
             
                 grilleJeu.afficherGrilleSurConsole();
-
-                
             }
             
             //Changer de joueur courant

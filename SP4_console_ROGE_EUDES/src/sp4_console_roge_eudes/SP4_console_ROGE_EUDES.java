@@ -23,15 +23,8 @@ public class SP4_console_ROGE_EUDES {
         Joueur Joueur1 = new Joueur(sc.nextLine()) ;
         Joueur Joueur2 = new Joueur(sc.nextLine()) ;
         
-        
-        
         Partie p = new Partie(Joueur1,Joueur2); // Création d'une nouvelle partie
-        
-        
-        
-        p.initialiserPartie();  // Initialisation de la partie (création 
-        //grille, couleurs, placement trous noirs, désintegrateurs)
-        
+
         p.debuterPartie1(); //Lancement partie
         
         

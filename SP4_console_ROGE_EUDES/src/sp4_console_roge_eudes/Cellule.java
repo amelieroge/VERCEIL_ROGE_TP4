@@ -5,21 +5,21 @@ public class Cellule {
     boolean trouNoir ;
     boolean desintegrateur ;
     
-    public Cellule () {
+    public Cellule () { // initialise une cellule vide
         jetonCourant = null ;
         trouNoir = false ;
         desintegrateur = false ;
     }
     
-    public boolean affecterJeton(Jeton jeton){
+    public boolean affecterJeton(Jeton jeton){ // permet  de mettre un jeton dans une cellule
         if (jetonCourant == null){
             jetonCourant = jeton;
             return true;
         } else return false;
     }
     
-    public String lireCouleurDuJeton(){
-        if (jetonCourant == null) return "vide"; 
+    public String lireCouleurDuJeton(){ 
+        if (jetonCourant == null) return "vide"; // évite de faire une erreur si la cellule courante est vide
         else return jetonCourant.lireCouleur();
     }
     
@@ -27,7 +27,7 @@ public class Cellule {
         return jetonCourant;
     }
 
-    public boolean placerTrouNoir() { //V3
+    public boolean placerTrouNoir() { 
         if (trouNoir == false) { 
             trouNoir = true ;
             return true ;
@@ -43,13 +43,14 @@ public class Cellule {
     
     public boolean activerTrouNoir() {
         if (presenceTrouNoir()== true) {
-            jetonCourant = null ;
+            jetonCourant = null ; // active le trou noir en faisant disparaître le jeton
+            // qui est ajouté dans la cellule
             trouNoir = false ;
             return true ; }
         else { return false ;}
     }
     
-    public boolean supprimerJeton() { //V4
+    public boolean supprimerJeton() { // supprime le jeton de la cellule
         if (jetonCourant != null) {
             jetonCourant = null ;
             return true ;
@@ -69,7 +70,8 @@ public class Cellule {
         else return false ;
     }
     
-    public boolean recupererDesintegrateur() {
+    public boolean recupererDesintegrateur() { // permet aux joueurs de récupérer les 
+        // désintégrateurs des cases pour les utiliser par la suite
         if (desintegrateur == true) {
             desintegrateur = true ;
             return true ;}
