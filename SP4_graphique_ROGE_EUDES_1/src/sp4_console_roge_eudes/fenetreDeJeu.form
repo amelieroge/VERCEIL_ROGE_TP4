@@ -319,9 +319,9 @@
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lbl_joueur_courant">
+        <Component class="javax.swing.JLabel" name="lbl_jcourant">
           <Properties>
-            <Property name="text" type="java.lang.String" value="nomJoueur1"/>
+            <Property name="text" type="java.lang.String" value="nomJoueurCourant"/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

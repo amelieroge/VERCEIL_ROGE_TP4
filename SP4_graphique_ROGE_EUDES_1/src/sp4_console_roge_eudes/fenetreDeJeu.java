@@ -14,8 +14,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
         
-        initialiserPartie();
-
+        
+        /* /!\ on a un problème avec l'affichage ça affiche rien du tout (à voir la partie "initialiserPartie", parce que même si on 
+        met l'affichage avant le début de la partie ça affiche que les désintégrateurs et pas les trous noirs /!\ */
+        
+        
         for (int i = 5; i >= 0; i--) { //Pour chaque cellule console, crée cellule graphique associée
             for (int j = 0; j < 7; j++) {
                 CelluleGraphique cellGraph = new CelluleGraphique(grilleJeu.CelluleJeu[i][j]);
@@ -57,7 +60,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         panneau_info_partie = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        lbl_joueur_courant = new javax.swing.JLabel();
+        lbl_jcourant = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         message = new javax.swing.JTextArea();
         btn_col_0 = new javax.swing.JButton();
@@ -162,8 +165,8 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         jLabel5.setText("Joueur courant : ");
         panneau_info_partie.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        lbl_joueur_courant.setText("nomJoueur1");
-        panneau_info_partie.add(lbl_joueur_courant, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
+        lbl_jcourant.setText("nomJoueurCourant");
+        panneau_info_partie.add(lbl_jcourant, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
         message.setColumns(20);
         message.setRows(5);
@@ -222,6 +225,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
+        /*initialiserPartie();
+        panneau_grille.repaint();*/
+        btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
 
    
@@ -283,6 +289,13 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         
         this.attribuerCouleurAuxJoueurs();
 
+        lbl_j1_nom.setText(nomJoueur1);
+        lbl_j2_nom.setText(nomJoueur2);
+        lbl_j1_couleur.setText(j1.Couleur);
+        lbl_j2_couleur.setText(j2.Couleur);
+        lbl_j1_desint.setText(j1.nombreDesintegrateurs+"");
+        lbl_j2_desint.setText(j2.nombreDesintegrateurs+"");
+        
         for (int i = 0; i < 21; i++) {
             ListeJoueurs[0].ajouterJeton(new Jeton(ListeJoueurs[0].Couleur));
             ListeJoueurs[1].ajouterJeton(new Jeton(ListeJoueurs[1].Couleur));
@@ -294,7 +307,9 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             joueurCourant = ListeJoueurs[1];
         }
 
-        Random r = new Random(); //Placer les trous noirs
+        lbl_jcourant.setText(joueurCourant.Nom);
+        
+        Random r = new Random(); // Placer les trous noirs
         int n;
         int m;
         int i = 0;
@@ -304,14 +319,15 @@ public class fenetreDeJeu extends javax.swing.JFrame {
             m = r.nextInt(7);
             if (grilleJeu.CelluleJeu[n][m].presenceTrouNoir() == false) {
                 grilleJeu.placerTrouNoir(n, m);
-                if (j < 2) {
+                if (j < 2) {                                // placer les deux désintégrateurs sur les trous noirs
                     grilleJeu.placerDesintegrateur(n, m);
                     j++;
-                } i++;
+                } 
+                i++;
             }
         }
 
-        i = 0;//Placer les desintegrateurs
+        i = 0; // Placer les 3 desintegrateurs restants
         while (i < 3) {
             n = r.nextInt(6);
             m = r.nextInt(7);
@@ -350,7 +366,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     private javax.swing.JLabel lbl_j2_couleur;
     private javax.swing.JLabel lbl_j2_desint;
     private javax.swing.JLabel lbl_j2_nom;
-    private javax.swing.JLabel lbl_joueur_courant;
+    private javax.swing.JLabel lbl_jcourant;
     private javax.swing.JTextArea message;
     private javax.swing.JTextField nom_joueur1;
     private javax.swing.JTextField nom_joueur2;
