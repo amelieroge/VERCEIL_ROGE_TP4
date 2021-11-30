@@ -185,9 +185,19 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(btn_col_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         btn_col_1.setText("2");
+        btn_col_1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 40, -1, -1));
 
         btn_col_2.setText("3");
+        btn_col_2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, -1, -1));
 
         btn_col_3.setText("4");
@@ -199,12 +209,27 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         getContentPane().add(btn_col_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 40, -1, -1));
 
         btn_col_4.setText("5");
+        btn_col_4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_4ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, -1, -1));
 
         btn_col_5.setText("6");
+        btn_col_5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_5ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 40, -1, -1));
 
         btn_col_6.setText("7");
+        btn_col_6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_col_6ActionPerformed(evt);
+            }
+        });
         getContentPane().add(btn_col_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, -1, -1));
 
         setBounds(0, 0, 1042, 703);
@@ -215,11 +240,11 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_nom_joueur1ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
-        // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
-        // TODO add your handling code here:
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
@@ -230,6 +255,31 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
 
+    private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_1ActionPerformed
+
+    private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
+       joueurSuivant();
+    }//GEN-LAST:event_btn_col_2ActionPerformed
+
+    private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_4ActionPerformed
+
+    private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_5ActionPerformed
+
+    private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
+        joueurSuivant();
+    }//GEN-LAST:event_btn_col_6ActionPerformed
+
+    public void joueurSuivant() {
+    if (joueurCourant == ListeJoueurs[0]) joueurCourant = ListeJoueurs[1];
+    else joueurCourant = ListeJoueurs[0];
+    lbl_jcourant.setText(joueurCourant.Nom);
+}
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
