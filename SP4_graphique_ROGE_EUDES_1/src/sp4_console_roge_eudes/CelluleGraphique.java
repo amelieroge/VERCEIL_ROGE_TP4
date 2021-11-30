@@ -30,7 +30,7 @@ import javax.swing.JButton;
         if (celluleAssociee.presenceTrouNoir()){
             setIcon(img_trouNoir);
         }
-        if (celluleAssociee.presenceDesintegrateur()){
+       else if (celluleAssociee.presenceDesintegrateur()){
             setIcon(img_desintegrateur);
         }
         else {

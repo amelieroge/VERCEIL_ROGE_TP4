@@ -112,7 +112,7 @@ public class Partie {
 
                 } while (colonne < 0 || colonne > 6);
                 
-                grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants - 1], colonne);
+                grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], colonne);
                 
                 if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(colonne)][colonne].presenceDesintegrateur() == true) {
                     joueurCourant.nombreDesintegrateurs++; // Ajout d'un desintegrateur au joueur

@@ -13,11 +13,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
         initComponents();
         panneau_info_joueurs.setVisible(false);
         panneau_info_partie.setVisible(false);
-        
-        
-        /* /!\ on a un problème avec l'affichage ça affiche rien du tout (à voir la partie "initialiserPartie", parce que même si on 
-        met l'affichage avant le début de la partie ça affiche que les désintégrateurs et pas les trous noirs /!\ */
-        
+      
         
         for (int i = 5; i >= 0; i--) { //Pour chaque cellule console, crée cellule graphique associée
             for (int j = 0; j < 7; j++) {
@@ -240,41 +236,75 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     }//GEN-LAST:event_nom_joueur1ActionPerformed
 
     private void btn_col_0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_0ActionPerformed
+        if (!jouerDansColonne(0))btn_col_0.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_0ActionPerformed
 
     private void btn_col_3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_3ActionPerformed
+        if (!jouerDansColonne(3))btn_col_3.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_3ActionPerformed
 
     private void btn_startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_startActionPerformed
         panneau_info_joueurs.setVisible(true);
         panneau_info_partie.setVisible(true);
-        /*initialiserPartie();
-        panneau_grille.repaint();*/
+        initialiserPartie();
+        panneau_grille.repaint();
         btn_start.setEnabled(false);
     }//GEN-LAST:event_btn_startActionPerformed
 
     private void btn_col_1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_1ActionPerformed
+        if (!jouerDansColonne(1))btn_col_1.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_1ActionPerformed
 
     private void btn_col_2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_2ActionPerformed
-       joueurSuivant();
+        if (!jouerDansColonne(2))btn_col_2.setEnabled(false);
+        panneau_grille.repaint();
+        joueurSuivant();
     }//GEN-LAST:event_btn_col_2ActionPerformed
 
     private void btn_col_4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_4ActionPerformed
+        if (!jouerDansColonne(4))btn_col_4.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_4ActionPerformed
 
     private void btn_col_5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_5ActionPerformed
+        if (!jouerDansColonne(5))btn_col_5.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_5ActionPerformed
 
     private void btn_col_6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_col_6ActionPerformed
+        if (!jouerDansColonne(6))btn_col_6.setEnabled(false);
+        panneau_grille.repaint();
         joueurSuivant();
     }//GEN-LAST:event_btn_col_6ActionPerformed
 
+    public boolean jouerDansColonne(int indice){
+        if (grilleJeu.ajouterJetonDansColonne(joueurCourant.ListeJetons[joueurCourant.nombreJetonsRestants-1], indice)) {
+            if (grilleJeu.CelluleJeu[grilleJeu.connaitreLigne(indice)][indice].presenceDesintegrateur() == true) {
+                    joueurCourant.nombreDesintegrateurs++; // Ajout d'un desintegrateur au joueur
+            }
+            lbl_j1_desint.setText(ListeJoueurs[0].nombreDesintegrateurs+"");
+            lbl_j2_desint.setText(ListeJoueurs[1].nombreDesintegrateurs+"");
+            
+            boolean vict_j1 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[0]);
+            boolean vict_j2 = grilleJeu.etreGagnantePourJoueur(ListeJoueurs[1]);
+            
+            if (vict_j1 && !vict_j2) message.setText("Victoire de " + ListeJoueurs[0].Nom);
+            if (!vict_j1 && vict_j2) message.setText("Victoire de " + ListeJoueurs[1].Nom);
+            if (vict_j1 && vict_j2) message.setText("Egalité !");
+            
+            return true;
+        }
+        return false;
+    }
+    
     public void joueurSuivant() {
     if (joueurCourant == ListeJoueurs[0]) joueurCourant = ListeJoueurs[1];
     else joueurCourant = ListeJoueurs[0];
@@ -327,7 +357,7 @@ public class fenetreDeJeu extends javax.swing.JFrame {
     
     public void initialiserPartie() {
         
-        grilleJeu = new Grille();
+        //grilleJeu = new Grille();
         
         // création des joueurs 
         String nomJoueur1 = nom_joueur1.getText();
